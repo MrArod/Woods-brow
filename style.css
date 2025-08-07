@@ -89,3 +89,13 @@ img { max-width: 100%; display: block; }
   color: #666;
   margin-top: 8px;
 }
+
+.booking {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+#calendar {
+  margin-top: 16px;
+}
