@@ -17,9 +17,3 @@ This project now includes a small Node/Express server to handle Google OAuth and
    ```
 
 The site will be available at `http://localhost:3000/`.
-
-### Pages
-
-- `index.html` – landing page with overview of services
-- `booking.html` – Google Calendar booking interface
-- `microblading.html`, `facials.html`, `brow-lamination.html`, `pmu.html` – individual service details

@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"No tests specified\""
+
   },
   "dependencies": {
     "dotenv": "^16.4.0",

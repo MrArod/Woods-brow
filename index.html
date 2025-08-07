@@ -8,13 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet' />
 </head>
 <body>
   <header class="site-header">
     <div class="logo">Woods Brows</div>
     <nav class="nav">
       <a href="#services">Services</a>
-      <a href="booking.html" class="btn">Book Now</a>
+
     </nav>
   </header>
 
@@ -48,6 +49,12 @@
     </a>
   </section>
 
+  <section id="booking" class="booking">
+    <h2>Booking</h2>
+    <button id="signin-btn" class="btn">Sign in with Google</button>
+    <div id="calendar"></div>
+  </section>
+
   <div class="ribbon">Book a consultation today and define your beauty.</div>
 
   <footer class="site-footer">
@@ -64,6 +71,7 @@
     <p class="fineprint">© 2024 Woods Brows</p>
   </footer>
 
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js'></script>
   <script src="main.js"></script>
 </body>
 </html>
