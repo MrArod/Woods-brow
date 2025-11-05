@@ -7,22 +7,78 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=apple-glass">
 </head>
-<body>
+<body class="detail">
   <header class="site-header">
-    <div class="logo">Woods Brows</div>
-    <nav class="nav">
-      <a href="index.html#services">Services</a>
-      <a href="booking.html" class="btn">Book Now</a>
-    </nav>
+    <div class="nav-shell">
+      <a href="index.html" class="logo">Woods Brows</a>
+      <nav class="nav">
+        <a href="services.html">Services</a>
+        <a href="booking.html" class="btn">Book Now</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="service-detail">
-    <h1>Microblading</h1>
-    <p class="price-duration">$400 • 2 hours</p>
-    <p>Precision hairstrokes implanted with pigment to create fuller, natural-looking brows tailored to your face shape.</p>
-  </section>
+  <main class="detail-main">
+    <section class="detail-hero">
+      <figure class="detail-hero-visual reveal-on-scroll">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1512252591199-14d0f6fb89e7?auto=format&fit=crop&w=1400&q=80" alt="Microblading artist perfecting brow strokes">
+      </figure>
+      <div class="detail-hero-copy glass-panel reveal-on-scroll">
+        <p class="eyebrow">Signature Service</p>
+        <h1>Microblading</h1>
+        <p class="price-duration">$400 • 2 hours</p>
+        <p>Precision hairstrokes implanted with pigment to create fuller, natural-looking brows tailored to your bone structure and skin tone.</p>
+        <ul class="detail-meta">
+          <li><span>Longevity</span>12–18 months with annual refresh</li>
+          <li><span>Healing</span>Soft flake in 7–10 days</li>
+          <li><span>Ideal for</span>Sparse or asymmetrical brows craving lasting symmetry</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn" href="booking.html">Book Microblading</a>
+          <a class="link" href="services.html">View full menu →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-body">
+      <div class="glass-panel detail-overview reveal-on-scroll">
+        <h2>What to expect</h2>
+        <p>Your appointment begins with custom mapping to honour your facial architecture followed by gentle, feather-light strokes that mimic real hair. Pigments are blended to harmonise with your complexion for a seamless, lived-in finish.</p>
+        <div class="detail-grid">
+          <div class="detail-card">
+            <h3>Consultation & mapping</h3>
+            <p>We define the perfect outline with VisionOS-inspired projection tools and agree on your desired density before any pigment is placed.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Feathered application</h3>
+            <p>Ultra-fine strokes are layered in gentle passes, building natural fullness while maintaining a soft gradient at the front of the brow.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Finishing ritual</h3>
+            <p>We seal brows with cooling gel and capture after photos in a glass-lit setting so you leave with the ultimate reveal.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-gallery reveal-on-scroll">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80" alt="Microblading result close-up">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=1200&q=80" alt="Mapping stage for microblading">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1604791209105-a1e63caa1f5b?auto=format&fit=crop&w=1200&q=80" alt="Client brows after microblading reveal">
+      </div>
+
+      <div class="glass-panel detail-overview reveal-on-scroll">
+        <h2>Aftercare essentials</h2>
+        <ul class="detail-list">
+          <li>Keep brows dry for 48 hours to lock in pigment.</li>
+          <li>Apply the provided barrier ointment morning and night for 7 days.</li>
+          <li>Avoid saunas, heavy workouts, and retinoids during the first two weeks.</li>
+          <li>Schedule your complimentary touch-up 6–8 weeks post appointment.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-grid">
