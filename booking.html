@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=apple-glass">
-  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet' />
 </head>
 <body class="detail booking-detail">
   <header class="site-header">
@@ -41,10 +40,50 @@
     <section class="detail-body">
       <div class="glass-panel booking-panel reveal-on-scroll">
         <h2>Reserve your time</h2>
-        <p>Select your service, sign in to sync confirmations, and lock in the time that works for you.</p>
-        <button id="signin-btn" class="btn">Sign in with Google</button>
-        <p id="calendar-status" class="calendar-status">Sign in with Google to view availability.</p>
-        <div id="calendar"></div>
+        <p>Share a few details and our concierge will confirm your appointment within one business day.</p>
+        <form id="booking-form" class="booking-form">
+          <div class="form-grid">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+            <label>
+              <span>Phone</span>
+              <input type="tel" name="phone" autocomplete="tel">
+            </label>
+            <label>
+              <span>Service</span>
+              <select name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Signature Brow Sculpt</option>
+                <option>Microblading</option>
+                <option>Lash Extensions</option>
+                <option>Powder Brows</option>
+                <option>Brow Lamination</option>
+                <option>Hybrid Brows</option>
+                <option>Facial Ritual</option>
+              </select>
+            </label>
+            <label>
+              <span>Date</span>
+              <input type="date" name="date" required>
+            </label>
+            <label>
+              <span>Preferred time</span>
+              <input type="time" name="time" required>
+            </label>
+          </div>
+          <label class="notes">
+            <span>Notes</span>
+            <textarea name="notes" rows="4" placeholder="Let us know any goals, allergies, or timing preferences."></textarea>
+          </label>
+          <button type="submit" class="btn">Submit request</button>
+        </form>
+        <p id="booking-status" class="calendar-status" aria-live="polite">We’ll confirm availability after you submit.</p>
         <p class="booking-alt">Prefer text? Message “BOOK” to (425) 555-0123.</p>
       </div>
     </section>
@@ -64,7 +103,6 @@
     <p class="fineprint">© 2024 Woods Brows</p>
   </footer>
 
-  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js'></script>
   <script src="main.js"></script>
 </body>
 </html>

@@ -1,7 +1,8 @@
 import express from 'express';
-import session from 'express-session';
-import { google } from 'googleapis';
 import dotenv from 'dotenv';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -9,124 +10,78 @@ const app = express();
 app.set('trust proxy', true);
 app.use(express.static('.'));
 app.use(express.json());
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET || 'change-me',
-    resave: false,
-    saveUninitialized: true,
-  })
-);
 
-const hasGoogleConfig =
-  Boolean(process.env.GOOGLE_CLIENT_ID) && Boolean(process.env.GOOGLE_CLIENT_SECRET);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const dataDir = path.join(__dirname, 'data');
+const bookingsPath = path.join(dataDir, 'bookings.json');
 
-function getRedirectUri(req) {
-  if (process.env.GOOGLE_REDIRECT_URI) {
-    return process.env.GOOGLE_REDIRECT_URI;
+async function ensureBookingsFile() {
+  try {
+    await fs.access(bookingsPath);
+  } catch (err) {
+    await fs.mkdir(dataDir, { recursive: true });
+    await fs.writeFile(bookingsPath, '[]', 'utf8');
   }
-
-  const forwardedProto = req.headers['x-forwarded-proto'];
-  const protocol = forwardedProto ? forwardedProto.split(',')[0] : req.protocol;
-  const host = req.headers['x-forwarded-host'] || req.get('host');
-
-  return `${protocol}://${host}/auth/callback`;
 }
 
-function getOAuthClient(req) {
-  if (!hasGoogleConfig) {
-    throw new Error('Google OAuth environment variables are not configured');
+async function readBookings() {
+  await ensureBookingsFile();
+  const content = await fs.readFile(bookingsPath, 'utf8');
+  try {
+    return JSON.parse(content);
+  } catch {
+    return [];
   }
-
-  const redirectUri = getRedirectUri(req);
-
-  return new google.auth.OAuth2(
-    process.env.GOOGLE_CLIENT_ID,
-    process.env.GOOGLE_CLIENT_SECRET,
-    redirectUri
-  );
 }
 
-app.get('/auth', (req, res) => {
-  if (!hasGoogleConfig) {
-    return res.status(500).send('Google Calendar integration is not configured.');
-  }
+async function writeBookings(bookings) {
+  await fs.writeFile(bookingsPath, JSON.stringify(bookings, null, 2));
+}
 
-  const oauth2Client = getOAuthClient(req);
-  const url = oauth2Client.generateAuthUrl({
-    access_type: 'offline',
-    scope: ['https://www.googleapis.com/auth/calendar'],
-    prompt: 'consent',
-  });
-  res.redirect(url);
-});
+app.post('/api/bookings', async (req, res) => {
+  const { name, email, phone, service, date, time, notes } = req.body;
 
-app.get('/auth/callback', async (req, res) => {
-  const { code } = req.query;
-  if (!code) {
-    return res.status(400).send('Missing authorization code');
-  }
-  try {
-    if (!hasGoogleConfig) {
-      throw new Error('Google OAuth environment variables are not configured');
-    }
-
-    const oauth2Client = getOAuthClient(req);
-    const { tokens } = await oauth2Client.getToken(code);
-    oauth2Client.setCredentials(tokens);
-    req.session.tokens = tokens;
-    return req.session.save(err => {
-      if (err) {
-        console.error('Failed to persist session tokens', err);
-        return res.status(500).send('Authentication failed');
-      }
-      res.redirect('/booking.html?connected=1');
+  if (!name || !email || !service || !date || !time) {
+    return res.status(400).json({
+      error: 'Name, email, service, date, and time are required.'
     });
+  }
+
+  const booking = {
+    id: Date.now().toString(36),
+    name,
+    email,
+    phone: phone || '',
+    service,
+    date,
+    time,
+    notes: notes || '',
+    createdAt: new Date().toISOString()
+  };
+
+  try {
+    const bookings = await readBookings();
+    bookings.push(booking);
+    await writeBookings(bookings);
+    res.status(201).json({ message: 'Booking request received.', booking });
   } catch (err) {
-    console.error('OAuth callback failed', err);
-    res.status(500).send('Authentication failed');
+    console.error('Failed to save booking', err);
+    res.status(500).json({ error: 'Unable to save booking. Please try again later.' });
   }
 });
 
-app.get('/events', async (req, res) => {
-  if (!req.session.tokens) return res.status(401).send('Unauthorized');
-  if (!hasGoogleConfig) {
-    return res.status(500).send('Google Calendar integration is not configured.');
-  }
-  const oauth2Client = getOAuthClient(req);
-  oauth2Client.setCredentials(req.session.tokens);
-  const calendar = google.calendar({ version: 'v3', auth: oauth2Client });
+app.get('/api/bookings', async (_req, res) => {
   try {
-    const events = await calendar.events.list({
-      calendarId: 'primary',
-      timeMin: new Date().toISOString(),
-      maxResults: 10,
-      singleEvents: true,
-      orderBy: 'startTime',
-    });
-    res.send(events.data.items);
+    const bookings = await readBookings();
+    res.json(bookings);
   } catch (err) {
-    res.status(500).send(err.message);
-  }
-});
-
-app.post('/events', async (req, res) => {
-  if (!req.session.tokens) return res.status(401).send('Unauthorized');
-  if (!hasGoogleConfig) {
-    return res.status(500).send('Google Calendar integration is not configured.');
-  }
-  const oauth2Client = getOAuthClient(req);
-  oauth2Client.setCredentials(req.session.tokens);
-  const calendar = google.calendar({ version: 'v3', auth: oauth2Client });
-  try {
-    const result = await calendar.events.insert({
-      calendarId: 'primary',
-      requestBody: req.body,
-    });
-    res.send(result.data);
-  } catch (err) {
-    res.status(500).send(err.message);
+    console.error('Failed to load bookings', err);
+    res.status(500).json({ error: 'Unable to load bookings.' });
   }
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}`);
+});
