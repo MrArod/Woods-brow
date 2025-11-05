@@ -7,22 +7,78 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=apple-glass">
 </head>
-<body>
+<body class="detail">
   <header class="site-header">
-    <div class="logo">Woods Brows</div>
-    <nav class="nav">
-      <a href="index.html#services">Services</a>
-      <a href="booking.html" class="btn">Book Now</a>
-    </nav>
+    <div class="nav-shell">
+      <a href="index.html" class="logo">Woods Brows</a>
+      <nav class="nav">
+        <a href="services.html">Services</a>
+        <a href="booking.html" class="btn">Book Now</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="service-detail">
-    <h1>Brow Lamination</h1>
-    <p class="price-duration">$150 • 1 hour</p>
-    <p>Smooths and sets brow hair in your desired shape for a sleek, high-fashion look that lasts for weeks.</p>
-  </section>
+  <main class="detail-main">
+    <section class="detail-hero">
+      <figure class="detail-hero-visual reveal-on-scroll">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1400&q=80" alt="Brushed-up laminated brows in natural light">
+      </figure>
+      <div class="detail-hero-copy glass-panel reveal-on-scroll">
+        <p class="eyebrow">Signature Service</p>
+        <h1>Brow Lamination</h1>
+        <p class="price-duration">$150 • 1 hour</p>
+        <p>Smooths and sets every hair for an airy, brushed-up finish that makes brows appear fuller without the weight of makeup.</p>
+        <ul class="detail-meta">
+          <li><span>Longevity</span>6–8 weeks</li>
+          <li><span>Finish</span>Glossy, lifted, and feathered</li>
+          <li><span>Ideal for</span>Brows with unruly growth or anyone craving instant fullness</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn" href="booking.html">Book Lamination</a>
+          <a class="link" href="services.html">Compare services →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-body">
+      <div class="glass-panel detail-overview reveal-on-scroll">
+        <h2>Liquid-glass lift</h2>
+        <p>We start with a brow cleanse, apply a gentle keratin solution, and sculpt hairs into place with ultra-fine combs. The result is a soft-focus sheen that channels the Apple glass aesthetic in real life.</p>
+        <div class="detail-grid">
+          <div class="detail-card">
+            <h3>Keratin prep</h3>
+            <p>Conditioning serum softens the hair cuticle so each strand can be shaped without damage.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Precision sculpt</h3>
+            <p>Brows are lifted and aligned with micro brushes for a symmetrical, airy finish.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Glass seal</h3>
+            <p>A nourishing topcoat locks in shape, leaving a reflective gloss reminiscent of VisionOS UI.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-gallery reveal-on-scroll">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80" alt="Before and after brow lamination result">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80" alt="Artist styling laminated brows">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1200&q=80" alt="Close-up of laminated brows with sheen">
+      </div>
+
+      <div class="glass-panel detail-overview reveal-on-scroll">
+        <h2>Aftercare</h2>
+        <ul class="detail-list">
+          <li>Avoid getting brows wet for 24 hours after your appointment.</li>
+          <li>Brush brows upward daily with the provided conditioning serum.</li>
+          <li>Skip retinol and exfoliants around the brow area for 48 hours.</li>
+          <li>Book your refresh appointment at the 6-week mark to maintain lift.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-grid">

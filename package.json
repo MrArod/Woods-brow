@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-
+    "check:conflicts": "node scripts/check-conflicts.mjs"
   },
   "dependencies": {
     "dotenv": "^16.4.0",
