@@ -7,6 +7,7 @@
   --radius-lg: 32px;
   --radius-md: 18px;
   --max-width: 1200px;
+  --header-height: 96px;
 }
 
 * {
@@ -23,10 +24,7 @@ body {
   background: var(--white);
   color: var(--ink);
   line-height: 1.6;
-}
-
-main {
-  padding-top: 96px;
+  padding-top: var(--header-height);
 }
 
 img {
@@ -573,8 +571,8 @@ p {
     justify-content: center;
   }
 
-  main {
-    padding-top: 80px;
+  :root {
+    --header-height: 80px;
   }
 
   .hero {
