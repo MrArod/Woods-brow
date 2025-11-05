@@ -1,15 +1,19 @@
-const revealEls = document.querySelectorAll('.card, .service, .ph');
+let revealTargets = [];
+
 const onScroll = () => {
   const trigger = window.innerHeight * 0.9;
-  revealEls.forEach(el => {
+  revealTargets.forEach(el => {
     const rect = el.getBoundingClientRect();
-    if (rect.top < trigger) el.classList.add('show', 'reveal');
+    if (!el.classList.contains('reveal') && rect.top < trigger) {
+      el.classList.add('reveal');
+    }
   });
 };
 
-document.addEventListener('scroll', onScroll);
 document.addEventListener('DOMContentLoaded', () => {
+  revealTargets = Array.from(document.querySelectorAll('.reveal-on-scroll'));
   onScroll();
+  document.addEventListener('scroll', onScroll, { passive: true });
 
   const signinBtn = document.getElementById('signin-btn');
   if (signinBtn) {
@@ -22,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (calendarEl) {
     const calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'dayGridMonth',
+      height: 'auto',
+      expandRows: true,
       dateClick: async (info) => {
         const start = new Date(info.date);
         const end = new Date(start.getTime() + 30 * 60 * 1000);
