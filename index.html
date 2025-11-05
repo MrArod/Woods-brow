@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=apple-glass">
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
 </head>
 <body class="home">
@@ -15,10 +15,10 @@
     <div class="nav-shell">
       <a href="#top" class="logo">Woods Brows</a>
       <nav class="nav">
-        <a href="#services">Services</a>
+        <a href="services.html">Services</a>
         <a href="#studio">Studio</a>
         <a href="#booking">Booking</a>
-        <a href="booking.html" class="btn btn-dark">Book Now</a>
+        <a href="booking.html" class="btn">Book Now</a>
       </nav>
     </div>
   </header>
@@ -31,7 +31,7 @@
           <p>Luxury brow artistry inspired by modern architecture—minimal, sculptural, and designed around you.</p>
           <div class="cta-row">
             <a href="#booking" class="btn">Book a Consultation</a>
-            <a href="#services" class="link">Explore Services</a>
+            <a href="services.html" class="link">Explore Services</a>
           </div>
         </div>
         <figure class="hero-visual">
@@ -63,38 +63,29 @@
       </div>
     </section>
 
-    <section class="service-stack" id="services">
+    <section class="gateway" aria-labelledby="gateway-title">
       <div class="section-intro">
-        <p class="eyebrow">Services</p>
-        <h2>Choose the finish that matches your aesthetic.</h2>
+        <p class="eyebrow" id="gateway-title">Next Steps</p>
+        <h2>Step into the studio or explore every finish in detail.</h2>
       </div>
-      <article class="stack-card reveal-on-scroll">
-        <img src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1800&q=80" alt="Microblading results">
-        <div class="stack-copy">
-          <p class="eyebrow">Microblading</p>
-          <h3>Feather-light definition that stays.</h3>
-          <p>Ultra-fine hairstrokes laid with precision for full, natural dimension. Ideal for sparse brows or clients wanting lasting polish.</p>
-          <a class="stack-link" href="microblading.html">Discover Microblading</a>
-        </div>
-      </article>
-      <article class="stack-card reveal-on-scroll">
-        <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba2?auto=format&fit=crop&w=1800&q=80" alt="Brow lamination result">
-        <div class="stack-copy">
-          <p class="eyebrow">Brow Lamination</p>
-          <h3>Sculpted lift with a brushed-up finish.</h3>
-          <p>Polish unruly hairs into a smooth, airy silhouette with gentle lamination and nourishing aftercare guidance.</p>
-          <a class="stack-link" href="brow-lamination.html">Explore Lamination</a>
-        </div>
-      </article>
-      <article class="stack-card reveal-on-scroll">
-        <img src="https://images.unsplash.com/photo-1594747458001-e9456d1c77f8?auto=format&fit=crop&w=1800&q=80" alt="Classic lash extensions">
-        <div class="stack-copy">
-          <p class="eyebrow">Classic Lashes</p>
-          <h3>Effortless enhancement for the everyday.</h3>
-          <p>Lightweight single lashes applied for clean, timeless definition—perfect for low-maintenance mornings.</p>
-          <a class="stack-link" href="pmu.html">See All Enhancements</a>
-        </div>
-      </article>
+      <div class="gateway-grid">
+        <a class="glass-tile reveal-on-scroll" href="services.html">
+          <div class="tile-content">
+            <span class="tile-kicker">Effortless Brows</span>
+            <h3>See every service</h3>
+            <p>Dive into our menu with Apple-inspired glass layouts, close-up imagery, and tailored recommendations.</p>
+            <span class="tile-link">View Services →</span>
+          </div>
+        </a>
+        <a class="glass-tile reveal-on-scroll" href="booking.html">
+          <div class="tile-content">
+            <span class="tile-kicker">Reserve Your Seat</span>
+            <h3>Book now</h3>
+            <p>Secure your appointment in seconds with our liquid-glass booking experience designed for calm clarity.</p>
+            <span class="tile-link">Book an Appointment →</span>
+          </div>
+        </a>
+      </div>
     </section>
 
     <section class="studio" id="studio">
@@ -117,8 +108,9 @@
         <p>Minimal maintenance. Maximum confidence.</p>
       </div>
       <div class="result-gallery">
-        <img class="reveal-on-scroll" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=80" alt="Before and after comparison">
-        <img class="reveal-on-scroll" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1200&q=80" alt="Detail of perfected brows">
+        <img class="reveal-on-scroll" loading="lazy" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=80" alt="Before and after comparison">
+        <img class="reveal-on-scroll" loading="lazy" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1200&q=80" alt="Detail of perfected brows">
+        <img class="reveal-on-scroll" loading="lazy" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80" alt="Client showcasing full brows">
       </div>
     </section>
 
