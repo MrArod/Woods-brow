@@ -32,11 +32,22 @@ app.get('/auth', (req, res) => {
 
 app.get('/auth/callback', async (req, res) => {
   const { code } = req.query;
+  if (!code) {
+    return res.status(400).send('Missing authorization code');
+  }
   try {
     const { tokens } = await oauth2Client.getToken(code);
+    oauth2Client.setCredentials(tokens);
     req.session.tokens = tokens;
-
+    return req.session.save(err => {
+      if (err) {
+        console.error('Failed to persist session tokens', err);
+        return res.status(500).send('Authentication failed');
+      }
+      res.redirect('/booking.html?connected=1');
+    });
   } catch (err) {
+    console.error('OAuth callback failed', err);
     res.status(500).send('Authentication failed');
   }
 });

@@ -501,6 +501,19 @@ p {
   align-self: flex-start;
 }
 
+.calendar-status {
+  font-size: 0.95rem;
+  color: rgba(17, 17, 17, 0.65);
+}
+
+.calendar-status.error {
+  color: #b42318;
+}
+
+.calendar-status.success {
+  color: #0b7a3b;
+}
+
 #calendar {
   width: 100%;
   background: rgba(255, 255, 255, 0.65);
