@@ -7,23 +7,87 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet' />
+  <link rel="stylesheet" href="style.css?v=apple-glass">
 </head>
-<body>
+<body class="detail booking-detail">
   <header class="site-header">
-    <div class="logo">Woods Brows</div>
-    <nav class="nav">
-      <a href="index.html#services">Services</a>
-      <a href="booking.html" class="btn">Book Now</a>
-    </nav>
+    <div class="nav-shell">
+      <a href="index.html" class="logo">Woods Brows</a>
+      <nav class="nav">
+        <a href="services.html">Services</a>
+        <a href="booking.html" class="btn">Book Now</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="booking">
-    <h1>Book an Appointment</h1>
-    <button id="signin-btn" class="btn">Sign in with Google</button>
-    <div id="calendar"></div>
-  </section>
+  <main class="detail-main">
+    <section class="detail-hero booking-hero">
+      <figure class="detail-hero-visual reveal-on-scroll">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1400&q=80" alt="Calm booking lounge at Woods Brows">
+      </figure>
+      <div class="detail-hero-copy glass-panel reveal-on-scroll">
+        <p class="eyebrow">Reserve</p>
+        <h1>Book an Appointment</h1>
+        <p>Sleek, glass-inspired booking keeps the process calm and intuitive—choose a service, tap your time, and arrive to a studio designed around you.</p>
+        <ul class="detail-meta">
+          <li><span>Hours</span>Tuesday – Saturday • 10am – 6pm</li>
+          <li><span>Location</span>Everett, Washington (address provided after confirmation)</li>
+          <li><span>Need help?</span>Email concierge@woodsbrows.com for bespoke scheduling</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="detail-body">
+      <div class="glass-panel booking-panel reveal-on-scroll">
+        <h2>Reserve your time</h2>
+        <p>Share a few details and our concierge will confirm your appointment within one business day.</p>
+        <form id="booking-form" class="booking-form">
+          <div class="form-grid">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" required>
+            </label>
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+            <label>
+              <span>Phone</span>
+              <input type="tel" name="phone" autocomplete="tel">
+            </label>
+            <label>
+              <span>Service</span>
+              <select name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Signature Brow Sculpt</option>
+                <option>Microblading</option>
+                <option>Lash Extensions</option>
+                <option>Powder Brows</option>
+                <option>Brow Lamination</option>
+                <option>Hybrid Brows</option>
+                <option>Facial Ritual</option>
+              </select>
+            </label>
+            <label>
+              <span>Date</span>
+              <input type="date" name="date" required>
+            </label>
+            <label>
+              <span>Preferred time</span>
+              <input type="time" name="time" required>
+            </label>
+          </div>
+          <label class="notes">
+            <span>Notes</span>
+            <textarea name="notes" rows="4" placeholder="Let us know any goals, allergies, or timing preferences."></textarea>
+          </label>
+          <button type="submit" class="btn">Submit request</button>
+        </form>
+        <p id="booking-status" class="calendar-status" aria-live="polite">We’ll confirm availability after you submit.</p>
+        <p class="booking-alt">Prefer text? Message “BOOK” to (425) 555-0123.</p>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-grid">
@@ -39,7 +103,6 @@
     <p class="fineprint">© 2024 Woods Brows</p>
   </footer>
 
-  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js'></script>
   <script src="main.js"></script>
 </body>
 </html>

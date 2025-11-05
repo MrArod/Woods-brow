@@ -1,4 +1,5 @@
 let revealTargets = [];
+let bookingStatusEl;
 
 const onScroll = () => {
   const trigger = window.innerHeight * 0.9;
@@ -15,61 +16,47 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
   document.addEventListener('scroll', onScroll, { passive: true });
 
-  const signinBtn = document.getElementById('signin-btn');
-  if (signinBtn) {
-    signinBtn.addEventListener('click', () => {
-      window.location.href = '/auth';
-    });
-  }
-
-  const calendarEl = document.getElementById('calendar');
-  if (calendarEl) {
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth',
-      height: 'auto',
-      expandRows: true,
-      dateClick: async (info) => {
-        const start = new Date(info.date);
-        const end = new Date(start.getTime() + 30 * 60 * 1000);
-        await createEvent({
-          summary: 'Appointment',
-          start: start.toISOString(),
-          end: end.toISOString()
-        });
-        calendar.addEvent({ title: 'Appointment', start });
-      }
-    });
-    calendar.render();
-    loadEvents(calendar);
+  bookingStatusEl = document.getElementById('booking-status');
+  const bookingForm = document.getElementById('booking-form');
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', handleBookingSubmit);
   }
 });
 
-async function loadEvents(calendar) {
-  try {
-    const res = await fetch('/events');
-    if (res.ok) {
-      const events = await res.json();
-      events.forEach(ev => {
-        calendar.addEvent({
-          title: ev.summary,
-          start: ev.start.dateTime || ev.start.date,
-          end: ev.end.dateTime || ev.end.date,
-        });
-      });
-    }
-  } catch (err) {
-    console.error(err);
-  }
-}
+async function handleBookingSubmit(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const formData = new FormData(form);
+  const payload = Object.fromEntries(formData.entries());
 
-async function createEvent(event) {
+  if (bookingStatusEl) {
+    bookingStatusEl.textContent = 'Sending your request…';
+    bookingStatusEl.classList.remove('error', 'success');
+  }
+
   try {
-    await fetch('/events', {
+    const response = await fetch('/api/bookings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(event)
+      body: JSON.stringify(payload)
     });
+
+    if (!response.ok) {
+      const error = await response.json().catch(() => ({}));
+      const message = error.error || 'We were unable to send your request. Please try again.';
+      throw new Error(message);
+    }
+
+    form.reset();
+    if (bookingStatusEl) {
+      bookingStatusEl.textContent = 'Request received. We will reach out shortly to confirm your appointment.';
+      bookingStatusEl.classList.add('success');
+    }
   } catch (err) {
-    console.error(err);
+    console.error('Failed to submit booking', err);
+    if (bookingStatusEl) {
+      bookingStatusEl.textContent = err.message || 'We were unable to send your request. Please try again.';
+      bookingStatusEl.classList.add('error');
+    }
   }
 }
