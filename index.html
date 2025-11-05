@@ -3,75 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Woods Brows</title>
+  <title>Woods Brows — Brows, Elevated.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet' />
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
 </head>
-<body>
+<body class="home">
   <header class="site-header">
-    <div class="logo">Woods Brows</div>
-    <nav class="nav">
-      <a href="#services">Services</a>
-
-    </nav>
+    <div class="nav-shell">
+      <a href="#top" class="logo">Woods Brows</a>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#studio">Studio</a>
+        <a href="#booking">Booking</a>
+        <a href="booking.html" class="btn btn-dark">Book Now</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-copy">
-      <h1>Your Perfect Brows</h1>
-      <p>Experience microblading, facials, brow lamination, and permanent makeup.</p>
-      <div class="cta-row">
-        <a href="#services" class="btn">View Services</a>
-        <a href="#contact" class="link">Learn More</a>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <h1>Brows, Elevated.</h1>
+          <p>Luxury brow artistry inspired by modern architecture—minimal, sculptural, and designed around you.</p>
+          <div class="cta-row">
+            <a href="#booking" class="btn">Book a Consultation</a>
+            <a href="#services" class="link">Explore Services</a>
+          </div>
+        </div>
+        <figure class="hero-visual">
+          <img src="https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=1600&q=80" alt="Soft natural brows close-up">
+        </figure>
       </div>
-    </div>
-  </section>
+      <div class="hero-footnote">Everett, WA — Appointments by reservation only</div>
+    </section>
 
-  <section id="services" class="service-cards">
-    <a href="microblading.html" class="card">
-      <h3>Microblading</h3>
-      <p>Natural-looking brow enhancement tailored to you.</p>
-    </a>
-    <a href="facials.html" class="card">
-      <h3>Facials</h3>
-      <p>Relaxing treatments to rejuvenate your skin.</p>
-    </a>
-    <a href="brow-lamination.html" class="card">
-      <h3>Brow Lamination</h3>
-      <p>Sleek, defined brows that stay in place.</p>
-    </a>
-    <a href="pmu.html" class="card">
-      <h3>PMU</h3>
-      <p>Long-lasting makeup solutions for effortless beauty.</p>
-    </a>
-  </section>
+    <section class="values" id="values">
+      <div class="section-intro">
+        <p class="eyebrow">Why Woods Brows</p>
+        <h2>Considered finishes with minimal upkeep.</h2>
+        <p>We design every brow to harmonise with bone structure, skin tone, and the way you live day-to-day.</p>
+      </div>
+      <div class="value-grid">
+        <div class="value-tile reveal-on-scroll">
+          <h3>Precision Mapping</h3>
+          <p>Architectural symmetry from custom measurements and bespoke pigment blends.</p>
+        </div>
+        <div class="value-tile reveal-on-scroll">
+          <h3>Skin-First Method</h3>
+          <p>Clean formulations and feather-light pressure for comfort and longevity.</p>
+        </div>
+        <div class="value-tile reveal-on-scroll">
+          <h3>Quiet Luxury</h3>
+          <p>A calm, private studio experience designed for ease from arrival to aftercare.</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="booking" class="booking">
-    <h2>Booking</h2>
-    <button id="signin-btn" class="btn">Sign in with Google</button>
-    <div id="calendar"></div>
-  </section>
+    <section class="service-stack" id="services">
+      <div class="section-intro">
+        <p class="eyebrow">Services</p>
+        <h2>Choose the finish that matches your aesthetic.</h2>
+      </div>
+      <article class="stack-card reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1526045478516-99145907023c?auto=format&fit=crop&w=1800&q=80" alt="Microblading results">
+        <div class="stack-copy">
+          <p class="eyebrow">Microblading</p>
+          <h3>Feather-light definition that stays.</h3>
+          <p>Ultra-fine hairstrokes laid with precision for full, natural dimension. Ideal for sparse brows or clients wanting lasting polish.</p>
+          <a class="stack-link" href="microblading.html">Discover Microblading</a>
+        </div>
+      </article>
+      <article class="stack-card reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba2?auto=format&fit=crop&w=1800&q=80" alt="Brow lamination result">
+        <div class="stack-copy">
+          <p class="eyebrow">Brow Lamination</p>
+          <h3>Sculpted lift with a brushed-up finish.</h3>
+          <p>Polish unruly hairs into a smooth, airy silhouette with gentle lamination and nourishing aftercare guidance.</p>
+          <a class="stack-link" href="brow-lamination.html">Explore Lamination</a>
+        </div>
+      </article>
+      <article class="stack-card reveal-on-scroll">
+        <img src="https://images.unsplash.com/photo-1594747458001-e9456d1c77f8?auto=format&fit=crop&w=1800&q=80" alt="Classic lash extensions">
+        <div class="stack-copy">
+          <p class="eyebrow">Classic Lashes</p>
+          <h3>Effortless enhancement for the everyday.</h3>
+          <p>Lightweight single lashes applied for clean, timeless definition—perfect for low-maintenance mornings.</p>
+          <a class="stack-link" href="pmu.html">See All Enhancements</a>
+        </div>
+      </article>
+    </section>
 
-  <div class="ribbon">Book a consultation today and define your beauty.</div>
+    <section class="studio" id="studio">
+      <div class="studio-inner">
+        <figure class="studio-visual reveal-on-scroll">
+          <img src="https://images.unsplash.com/photo-1604328702359-6777f8f58a27?auto=format&fit=crop&w=1800&q=80" alt="Studio interior">
+        </figure>
+        <div class="studio-copy">
+          <p class="eyebrow">Studio Ethos</p>
+          <h2>Quiet space. Intentional detail.</h2>
+          <p>From the scent in the room to the tools on the tray, everything is curated to keep the focus on you. Settle into a soft, neutral environment while we sculpt the brow architecture that feels like home.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="section-intro">
+        <p class="eyebrow">Client Results</p>
+        <h2>“I stopped filling my brows. Best decision.”</h2>
+        <p>Minimal maintenance. Maximum confidence.</p>
+      </div>
+      <div class="result-gallery">
+        <img class="reveal-on-scroll" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=80" alt="Before and after comparison">
+        <img class="reveal-on-scroll" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1200&q=80" alt="Detail of perfected brows">
+      </div>
+    </section>
+
+    <section class="booking" id="booking">
+      <div class="section-intro">
+        <p class="eyebrow">Booking</p>
+        <h2>Ready when you are.</h2>
+        <p>Select a time that suits your schedule or request a bespoke session.</p>
+      </div>
+      <button id="signin-btn" class="btn btn-dark">Sign in with Google</button>
+      <div id="calendar"></div>
+      <p class="booking-alt">Prefer text? Message “BOOK” to (425) 555-0123.</p>
+    </section>
+  </main>
 
   <footer class="site-footer">
-    <div class="footer-grid">
-      <div>
-        <h4>Contact</h4>
-        <p id="contact">info@woodsbrows.com</p>
-      </div>
-      <div>
-        <h4>Follow</h4>
-        <p>Instagram / Facebook</p>
+    <div class="footer-shell">
+      <p>© Woods Brows. Everett, WA.</p>
+      <div class="footer-links">
+        <a href="#">Policies</a>
+        <a href="#">Aftercare</a>
+        <a href="#">Instagram</a>
       </div>
     </div>
-    <p class="fineprint">© 2024 Woods Brows</p>
   </footer>
 
-  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js'></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
