@@ -269,6 +269,42 @@ p {
 .glass-tile:hover {
   transform: translateY(-6px);
   box-shadow: 0 45px 90px -36px rgba(15, 23, 42, 0.3);
+  padding: 32px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.service-stack {
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  align-items: center;
+}
+
+.stack-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 48px;
+  align-items: center;
+  max-width: min(var(--max-width), 1000px);
+  margin: 0 auto;
+  padding: 32px 5vw;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(17, 17, 17, 0.05);
+}
+
+.stack-card img {
+  width: 100%;
+  height: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 60px rgba(17, 17, 17, 0.08);
 }
 
 .tile-content {
@@ -362,125 +398,34 @@ p {
   box-shadow: 0 24px 60px rgba(17, 17, 17, 0.08);
 }
 
-.glass-panel {
-  position: relative;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.25));
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 40px 70px -32px rgba(15, 23, 42, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-}
-
-.glass-banner {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 72px 48px;
-  text-align: center;
-}
-
-.services-hero {
-  padding: 160px 5vw 80px;
-  background: radial-gradient(circle at 20% 20%, rgba(241, 240, 237, 0.6), transparent 55%), var(--white);
-}
-
-.service-showcase {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 5vw 80px;
-  display: grid;
-  gap: 48px;
-}
-
-.service-card {
-  display: grid;
-  gap: 32px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  align-items: stretch;
-  padding: 48px;
-}
-
-.service-card-media img {
+.full-width-cta {
   width: 100%;
-  height: 100%;
-  min-height: 280px;
-  object-fit: cover;
-  border-radius: calc(var(--radius-lg) - 12px);
-  box-shadow: 0 32px 60px -30px rgba(15, 23, 42, 0.28);
-}
-
-.service-card-copy {
+  padding: 0 5vw;
   display: flex;
-  flex-direction: column;
-  gap: 18px;
+  justify-content: center;
 }
 
-.service-card-copy h2 {
-  font-size: clamp(2.4rem, 4vw, 3rem);
+.btn-wide {
+  width: min(100%, 420px);
+  padding: 18px 32px;
+  font-size: 1.1rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 40px rgba(17, 17, 17, 0.12);
 }
 
-.service-card-copy ul {
-  margin: 0;
-  padding-left: 20px;
-  color: var(--soft-ink);
-  list-style: disc;
-}
+@media (max-width: 768px) {
+  .stack-card {
+    padding: 24px;
+    gap: 32px;
+  }
 
-.service-card-copy ul li + li {
-  margin-top: 10px;
-}
+  .stack-card img {
+    max-height: 320px;
+  }
 
-.card-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 10px;
-}
-
-.services-highlights,
-.services-cta {
-  padding: 60px 5vw 0;
-}
-
-.services-highlights .glass-panel,
-.services-cta .glass-panel {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 56px 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.services-highlights-grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.highlight-card {
-  padding: 24px;
-  border-radius: calc(var(--radius-lg) - 12px);
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
-  color: var(--soft-ink);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.highlight-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-  color: var(--ink);
-}
-
-.services-cta {
-  padding-bottom: 120px;
-}
-
-.services-cta .cta-row {
-  margin-top: 0;
+  .btn-wide {
+    width: 100%;
+  }
 }
 
 .booking {
