@@ -7,22 +7,78 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=apple-glass">
 </head>
-<body>
+<body class="detail">
   <header class="site-header">
-    <div class="logo">Woods Brows</div>
-    <nav class="nav">
-      <a href="index.html#services">Services</a>
-      <a href="booking.html" class="btn">Book Now</a>
-    </nav>
+    <div class="nav-shell">
+      <a href="index.html" class="logo">Woods Brows</a>
+      <nav class="nav">
+        <a href="services.html">Services</a>
+        <a href="booking.html" class="btn">Book Now</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="service-detail">
-    <h1>Facials</h1>
-    <p class="price-duration">$120 • 1 hour</p>
-    <p>Custom treatments designed to cleanse, exfoliate, and nourish your skin for a luminous, youthful glow.</p>
-  </section>
+  <main class="detail-main">
+    <section class="detail-hero">
+      <figure class="detail-hero-visual reveal-on-scroll">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1400&q=80" alt="Facialist performing soothing treatment">
+      </figure>
+      <div class="detail-hero-copy glass-panel reveal-on-scroll">
+        <p class="eyebrow">Studio Facial</p>
+        <h1>Glass Skin Facial</h1>
+        <p class="price-duration">$120 • 1 hour</p>
+        <p>Customised, glow-forward facials featuring oxygen infusion, sculpting massage, and glassy finishing serums for radiant skin that lasts.</p>
+        <ul class="detail-meta">
+          <li><span>Focus</span>Hydration, sculpting, and luminosity</li>
+          <li><span>Enhancements</span>Optional LED + nano infusion</li>
+          <li><span>Ideal for</span>Event prep or anyone craving next-level dewiness</li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn" href="booking.html">Book Facial</a>
+          <a class="link" href="services.html">See other rituals →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-body">
+      <div class="glass-panel detail-overview reveal-on-scroll">
+        <h2>The ritual</h2>
+        <p>Every facial is choreographed for visible results and deep relaxation. We combine lymphatic sculpting, targeted exfoliation, and oxygen-infused serums to leave skin reflective yet calm.</p>
+        <div class="detail-grid">
+          <div class="detail-card">
+            <h3>Double cleanse</h3>
+            <p>Start with gentle enzyme cleansing to melt away impurities without disrupting your barrier.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Targeted treatment</h3>
+            <p>Custom masques and nano infusion deliver actives where you need them most—glow, clarity, or lift.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Oxygen finish</h3>
+            <p>We seal the experience with oxygen dome therapy and cryo-globes for that lit-from-within sheen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-gallery reveal-on-scroll">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1556228578-8c89e6adf66a?auto=format&fit=crop&w=1200&q=80" alt="Facial treatment mask application">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1605972447149-25d95fd4c0f5?auto=format&fit=crop&w=1200&q=80" alt="Glass skin glow post facial">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?auto=format&fit=crop&w=1200&q=80" alt="Spa tools for facial ritual">
+      </div>
+
+      <div class="glass-panel detail-overview reveal-on-scroll">
+        <h2>Aftercare</h2>
+        <ul class="detail-list">
+          <li>Skip exfoliants for 48 hours to let active serums continue working.</li>
+          <li>Apply SPF 40+ daily to protect your fresh glass skin glow.</li>
+          <li>Hydrate generously and incorporate gua sha for lasting sculpt.</li>
+          <li>Book monthly sessions for cumulative results.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="footer-grid">
